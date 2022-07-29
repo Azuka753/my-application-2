@@ -9,6 +9,9 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.imageLoader
 import com.azurebear.myapplication2.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +35,11 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+        this.imageLoader.newBuilder()
+            .components{
+            add(SvgDecoder.Factory())
+        }.build()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

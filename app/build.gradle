@@ -65,4 +65,7 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycleVersion"
     implementation "androidx.lifecycle:lifecycle-common-java8:$rootProject.lifecycleVersion"
 
+    implementation "io.coil-kt:coil:2.1.0"
+    implementation "io.coil-kt:coil-gif:2.1.0"
+    implementation "io.coil-kt:coil-svg:2.1.0"
 }

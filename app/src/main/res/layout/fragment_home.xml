@@ -1,76 +1,298 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FirstFragment">
-
+    android:id="@+id/swift_main">
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="16dp"
+        android:padding="8dp"
         tools:layout_editor_absoluteX="35dp"
         tools:layout_editor_absoluteY="114dp">
 
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:elevation="4dp"
-            app:cardCornerRadius="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="wrap_content">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/primaryColor"
-                android:padding="16dp">
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/tv_now_temp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="26℃"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="48sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/primaryColor"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="8dp">
 
-                <TextView
-                    android:id="@+id/tv_now_text"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="8dp"
-                    android:text="晴"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toStartOf="@+id/tv_now_feelsLike"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintHorizontal_chainStyle="packed"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tv_now_temp" />
+                    <ImageView
+                        android:id="@+id/imageView"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:scaleType="fitCenter"
+                        android:layout_margin="24dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_now_obsTime"
+                        app:tint="@color/primaryTextColor" />
 
-                <TextView
-                    android:id="@+id/tv_now_feelsLike"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="体感温度 26℃"
-                    android:textColor="@color/primaryTextColor"
-                    android:textSize="16sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_now_text"
-                    app:layout_constraintTop_toTopOf="@+id/tv_now_text" />
+                    <TextView
+                        android:id="@+id/tv_now_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="26℃"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="48sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+                    <TextView
+                        android:id="@+id/tv_now_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="8dp"
+                        android:text="晴"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_now_feelsLike"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_now_temp" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                    <TextView
+                        android:id="@+id/tv_now_feelsLike"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="体感温度 26℃"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/tv_now_text"
+                        app:layout_constraintTop_toTopOf="@+id/tv_now_text" />
 
-        </androidx.cardview.widget.CardView>
+                    <TextView
+                        android:id="@+id/tv_update_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="更新时间"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="8sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tv_now_obsTime"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="观测时间"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="8sp"
+                        app:layout_constraintEnd_toEndOf="@+id/tv_update_time"
+                        app:layout_constraintStart_toStartOf="@+id/tv_update_time"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_update_time" />
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="0dp"
+                        android:src="@drawable/ic_location_on"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_now_obsTime"
+                        app:layout_constraintEnd_toStartOf="@+id/tv_city_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/primaryTextColor" />
+
+                    <TextView
+                        android:id="@+id/tv_city_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="武汉"
+                        android:textColor="@color/primaryTextColor"
+                        android:textSize="16dp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tv_now_obsTime"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/tv_update_time" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tv_now_text">
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/secondaryColor"
+                            android:columnCount="2"
+                            android:padding="8dp"
+                            android:rowCount="4">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:gravity="center"
+                                android:text="风向"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_windDir"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="北风 (0°)"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="风力等级"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_windScale"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="1 级"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="风速"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_windSpeed"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="1 km/h"
+                                android:textColor="@color/secondaryTextColor" />
+                        </GridLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="8dp"
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cardView1">
+
+                        <GridLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/secondaryColor"
+                            android:columnCount="2"
+                            android:padding="8dp"
+                            android:rowCount="4">
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="相对湿度"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_humidity"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_columnWeight="1"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="0.0 %"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="本小时累计雨量"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_precip"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="10 mm"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="大气压强"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_pressure"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="1003 hPa"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="能见度"
+                                android:textColor="@color/secondaryTextColor" />
+
+                            <TextView
+                                android:id="@+id/tv_now_vis"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="fill"
+                                android:gravity="center"
+                                android:text="16 km"
+                                android:textColor="@color/secondaryTextColor" />
+                        </GridLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
